@@ -1,0 +1,46 @@
+<! DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+		background-color: lightgrey;
+		margin: auto;
+}
+h1   {color: black;}
+p    {color: red;}
+table {width:50%;}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+th, td {
+	padding: 5px;
+	text-align: left;
+}
+table#t01 tr:nth-child(even) {
+	background-color: #009933;
+}
+table#t01 tr:nth-child(odd) {
+	background-color:#00FF33;
+}
+table#t01 th {
+	background-color: tomato;
+	color: black;
+}
+</style>
+</head>
+<body>
+<h1 style="background-color:MediumSeaGreen;">MyTasks Website</h1>
+	{% if task_lines %}
+		<table id="t01">
+				<tr><th>Task</th><th>Owner</th></tr>
+			{% for title, owner in task_lines.items %}
+			<tr>
+				<td>{{title}}</td>
+				<td>{{owner}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+</body>
+</html>
