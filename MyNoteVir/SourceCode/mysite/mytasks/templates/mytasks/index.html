@@ -2,45 +2,61 @@
 <html>
 <head>
 <style>
-body {
-		background-color: lightgrey;
-		margin: auto;
-}
-h1   {color: black;}
-p    {color: red;}
-table {width:50%;}
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-th, td {
-	padding: 5px;
-	text-align: left;
-}
-table#t01 tr:nth-child(even) {
-	background-color: #009933;
-}
-table#t01 tr:nth-child(odd) {
-	background-color:#00FF33;
-}
-table#t01 th {
-	background-color: tomato;
+.heading {
+	background-color: grey;
 	color: black;
+	margin: auto;
+	text-align: center;
+}
+.page {
+	margin: 5px 5px 5px 5px;
+}
+.tablet {
+	margin: auto;
+	margin-bottom: 6px;
+	background-color: black;
+	color: Green;
+	width: 80%;
+	border-radius: 10px;
+	float: center;
+	
+}
+.task_title {
+	text-align: left;
+	font-size: 20px;
+	font-family: Arial;
+	padding: 4px 10px 2px 10px;
+}
+.task_owner {
+	text-align: left;
+	text-decoration: underline;
+	font-size: 14px;
+	font-family: Monospace;
+	padding: 2px 6px 1px 6px;
+	color: red;
+}
+body {
+	background-color: rgb(251,251,251);
+	margin: auto;
 }
 </style>
 </head>
 <body>
-<h1 style="background-color:MediumSeaGreen;">MyTasks Website</h1>
-	{% if task_lines %}
-		<table id="t01">
-				<tr><th>Task</th><th>Owner</th></tr>
-			{% for title, owner in task_lines.items %}
-			<tr>
-				<td>{{title}}</td>
-				<td>{{owner}}</td>
-			</tr>
-			{% endfor %}
-		</table>
-	{% endif %}
+<div>
+<img src="my_task_logo.png" alt="can not load logo">
+</div>
+<div class=heading>
+<h1>MyTasks</h1>
+</div>
+<div class=page>
+{% if task_lines %}
+	{% for title, owner in task_lines.items %}
+		<div class=tablet>
+			<div class=task_title>{{title}}</div>
+			<div class=task_owner>{{owner}}</div>
+		</div>
+	{% endfor %}
+{% endif %}
+</div>
 </body>
 </html>
