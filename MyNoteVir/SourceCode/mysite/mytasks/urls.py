@@ -2,5 +2,11 @@ from django.conf.urls import url
 
 from . import views
 
-urlpatterns = [url(r'^$', views.index, name='index')]
-
+urlpatterns = [
+        url(r'^$', views.login_page, name='login'),
+        url(r'^home$', views.home_page, name='home'),
+        url(r'^create_account$', views.create_account_page,
+            name='create_account'),
+        url(r'^create_account_result$', views.create_account_result_page,
+            name='create_account_result')
+        ]

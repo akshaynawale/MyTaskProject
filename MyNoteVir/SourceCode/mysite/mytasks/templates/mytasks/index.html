@@ -1,62 +1,41 @@
 <! DOCTYPE html>
 <html>
 <head>
-<style>
-.heading {
-	background-color: grey;
-	color: black;
-	margin: auto;
-	text-align: center;
-}
-.page {
-	margin: 5px 5px 5px 5px;
-}
-.tablet {
-	margin: auto;
-	margin-bottom: 6px;
-	background-color: black;
-	color: Green;
-	width: 80%;
-	border-radius: 10px;
-	float: center;
-	
-}
-.task_title {
-	text-align: left;
-	font-size: 20px;
-	font-family: Arial;
-	padding: 4px 10px 2px 10px;
-}
-.task_owner {
-	text-align: left;
-	text-decoration: underline;
-	font-size: 14px;
-	font-family: Monospace;
-	padding: 2px 6px 1px 6px;
-	color: red;
-}
-body {
-	background-color: rgb(251,251,251);
-	margin: auto;
-}
-</style>
+{% load static %}
+	<link rel="stylesheet" type="text/css" href=" {% static 'mytasks/style.css' %} " />
 </head>
 <body>
-<div>
-<img src="my_task_logo.png" alt="can not load logo">
+
+<div class=taskbar>
+	MyTasks
 </div>
-<div class=heading>
-<h1>MyTasks</h1>
-</div>
-<div class=page>
-{% if task_lines %}
-	{% for title, owner in task_lines.items %}
-		<div class=tablet>
-			<div class=task_title>{{title}}</div>
-			<div class=task_owner>{{owner}}</div>
+<div class=body>
+	<div class=search_box>
+		<form action="{% url 'home' %}" method="post">{% csrf_token %}	
+			<label class=banner>Search by owner</label>	
+			<select name='owner' class=action_element autofocus>
+			{% for user in all_users %}
+				{% if user == selected %}
+					<option value={{user}} selected class="selected">{{user}} </option>
+				{% else %}
+					<option value={{user}} >{{user}} </option>
+				{% endif %}
+			{% endfor %}
+			</select>
+			<input type="submit" value="Submit" class=button_element>
+		</form>
+	</div>
+	<div class=task_playground>
+	{% if task_lines %}
+	        {% for task in task_lines %}
+		<div class=task>
+		<div class=date>{{task.pub_date}}</div>
+		<div class=owner>{{task.owner}}</div>
+		<div class=task_title>{{task.title}}</div>
 		</div>
-	{% endfor %}
-{% endif %}
+	        {% endfor %}
+	{% endif %}
+	</div>
 </div>
 </body>
 </html>

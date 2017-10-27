@@ -1,0 +1,16 @@
+<html>
+<head>
+{% load static %}
+	<link rel="stylesheet" type="text/css" href=" {% static 'mytasks/style.css' %} " />
+</head>
+<body>
+<div class=taskbar>
+	MyTasks
+</div>
+<div class=login_plane>
+	<label class=login_element>{{result}}</label>
+	<a href={% url 'login' %} class=page_url>Click here to login</a>
+	<a href={% url 'create_account' %} class=page_url>Click here to create new account</a>
+</div>
+<body>
+</html>
