@@ -108,3 +108,6 @@
 .login_button {
 	margin: auto;
 }
+.warning_element {
+	color: red;
+}

@@ -9,6 +9,9 @@
 </div>
 <div class=login_plane>
 	<form action='{% url 'home' %}' method='post'>{% csrf_token %}
+		{% if fail_warning %}
+			<label class='warning_element'>{{ fail_warning }}</label> 
+		{% endif %}
 		<label class=login_element>User Name:</label>
 		<input class=login_element type='text' name='uname' placeholder='Enter Username'required>
 		<label class=login_element>User Password:</label>

@@ -11,7 +11,7 @@
 </div>
 <div class=body>
 	<div class=search_box>
-		<form action="{% url 'home' %}" method="post">{% csrf_token %}	
+		<form action="{% url 'by_owner' %}" method="post">{% csrf_token %}	
 			<label class=banner>Search by owner</label>	
 			<select name='owner' class=action_element autofocus>
 			{% for user in all_users %}
