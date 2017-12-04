@@ -1,9 +1,14 @@
 <html>
 <head>
 {% load static %}
+{% load staticfiles %}
 	<link rel="stylesheet" type="text/css" href=" {% static 'mytasks/style.css' %} " />
 </head>
 <body>
+<video autoplay muted loop id="bharat_map_pan">
+       <source src={% static 'mytasks/videos/b.mp4' %} type="video/mp4">
+</video>
+<div class=login_content>
 <div class=taskbar>
 	MyTasks
 </div>
@@ -12,13 +17,12 @@
 		{% if fail_warning %}
 			<label class='warning_element'>{{ fail_warning }}</label> 
 		{% endif %}
-		<label class=login_element>User Name:</label>
-		<input class=login_element type='text' name='uname' placeholder='Enter Username'required>
-		<label class=login_element>User Password:</label>
-		<input class=login_element type='password' name='pwd' placeholder='Enter Password' required>
+		<input class=login_element type='text' name='uname' placeholder='Username'required>
+		<input class=login_element type='password' name='pwd' placeholder='Password' required>
 		<input class=button_element type='submit' value='Login'>
-		<a href={% url 'create_account' %} >Click here to create account</a>
+		<a href={% url 'create_account' %} class=link_element>Click here to create account</a>
 	</form>
+</div>
 </div>
 <body>
 </html>

@@ -1,23 +1,103 @@
-.taskbar {
-	background-color: red;
-	color: white;
-	margin: 2px 2px 2px 2px;
-	padding: 10px;
-	text-align: center;
-	font-size: 2.5em;
+#bharat_map_pan {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
-.body {
-	margin: 0.2em;
+.login_content {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+}
+
+.taskbar {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-align: center;
+        font-size: 2.5em;
+	width: 100%;
+	margin-bottom: 0.2em;
+}
+
+.login_plane {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0.2em;
+	margin: auto;
+	margin-top: 1em;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 250px;
+}
+
+.login_element {
+        text-align: center;
+        padding: 0.2em;
+        display: block;
+        margin: auto;
+	margin-top: 0.2em;
+        font: 1em;
+}
+
+.button_element {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 0.5em;
+        background-color: black;
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white;
+	padding: 0.4em;
+}
+
+.link_element {
+	display: block;
+	color: white;
+	margin: auto;
+	margin-top: 0.3em;
+	text-align: center;
 }
 
 .search_box {
-	position: relative;
 	float: left;
 	height: 200px;
 	width: 200px;
-	background-color: white;
-	color: black;
+}
+.banner{
+        padding: 0.2em;
+	display: block;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+        color: white;
+        background-color: black;
+        border: 1px solid white;
+        border-radius: 5px;
+}
+
+.action_element {
+        display: block;
+        padding: 0.2em;
+        margin-top: 0.3em;
+        background-color: black;
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white;
+}
+
+.selected {
+        background-color: red;
+        color: white;
+}
+
+.page_url {
+        display: block;
+}
+
+.warning_element {
+        color: red;
 }
 
 .task_playground {
@@ -25,7 +105,7 @@
 
 }
 .task {
-	background-color: green;
+	background: rgba(0, 0, 0, 0.5);
 	padding: 0.2em;
 	margin: 0.2em;
 	color: white;
@@ -42,8 +122,7 @@
 
 .task_title {
 	float: left;
-	padding: inherit;
-	margin: inherit;
+	text-align: left;
 }
 
 .owner {
@@ -56,58 +135,4 @@
 	border-radius: 5px;
 }
 
-.banner{
-	float: left;
-	padding: 0.2em;
-	margin: 0.2em;
-	color: white;
-	background-color: orange;
-	border: 1px solid black;
-	border-radius: 5px;
-}
-.action_element{
-	padding: 0.2em;
-	margin: 0.2em;
-	background-color: white;
-	border: 1px solid black;
-	border-radius: 5px;
-}
-.button_element {
-	padding: 0.3em;
-	margin: 0.2em;
-	background-color: red;
-	border: 1px solid black;
-	border-radius: 5px;
-	color: white
-}
-.selected {
-	background-color: red;
-	color: white;
-}
-.login_plane {
-	background-color: white;
-	padding: 0.2em;
-	margin: auto;
-	border: 1px solid black;
-	border-radius: 5px;
-	width: 250px;
-	margin-top: 3em;
 
-}
-.login_element {
-	text-align: center;
-
-	padding: 0.2em;
-	display: block;
-	margin: auto;
-	font: 1em;
-}
-.page_url {
-	display: block;
-}
-.login_button {
-	margin: auto;
-}
-.warning_element {
-	color: red;
-}

@@ -3,8 +3,10 @@ from django.template import loader
 from .models import Task
 from django.template import RequestContext
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 
 def index(request, owner='all'):
     print_msg = []
@@ -37,11 +39,13 @@ def index(request, owner='all'):
             {'task_lines': print_msg, 'all_users': all_users, 'selected': owner}
         )
 
+
 def home_page(request):
     user_name = request.POST['uname']
     password = request.POST['pwd']
     user = authenticate(username=user_name, password=password)
     if user is not None:
+        login(request, user)
         return index(request, owner=user_name)
     else:
         return render(
@@ -50,24 +54,32 @@ def home_page(request):
                 {'fail_warning': 'User not found try again'}
             )
 
+@login_required()
 def home_page_by_owner(request):
+    print(request.user)
+    print(request.user.is_authenticated)
     try:
         req_owner = request.POST['owner']
     except:
         req_owner = 'all'
     return index(request, owner=req_owner)
 
+
+# Index page for the site (login page)
 def login_page(request):
     return render(
             request,
-            'mytasks/login_page.html'
+            'mytasks/login_page.html',
+            {'fail_warning': None}
             )
+
 
 def create_account_page(request):
     return render(
             request,
             'mytasks/create_account.html'
             )
+
 
 def create_account_result_page(request):
     first_name = request.POST['first']
@@ -76,9 +88,9 @@ def create_account_result_page(request):
     user_name = request.POST['uname']
     password = request.POST['pwd']
     user_obj = User.objects.create_user(
-            user_name, 
-            email=email_id, 
-            password=password)
+        user_name,
+        email=email_id,
+        password=password)
     user_obj.first_name = first_name
     user_obj.last_name = last_name
     user_obj.save()
@@ -86,9 +98,14 @@ def create_account_result_page(request):
                'to login and access the website. Thank you!')
     # except:
     #    message = "Something went wrong. Please try again."
-    
     return render(
             request,
             'mytasks/create_account_result.html',
             {'result': message}
             )
+
+
+def video_test(request):
+    return render(
+            request,
+            'mytasks/video_test.html')

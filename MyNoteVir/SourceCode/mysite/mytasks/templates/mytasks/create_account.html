@@ -4,24 +4,24 @@
         <link rel="stylesheet" type="text/css" href=" {% static 'mytasks/style.css' %} " />
 </head>
 <body>
+<video autoplay muted loop id="bharat_map_pan">
+       <source src={% static 'mytasks/videos/b.mp4' %} type="video/mp4">
+</video>
+<div class=login_content>
 <div class=taskbar>
         MyTasks
 </div>
 <div class=login_plane>
         <form action='{% url 'create_account_result' %}' method='post'>{% csrf_token %}
-		<label class=login_element>First Name:</label>
 		<input class=login_element type='text' name='first' placeholder='Enter First Name'required>
-		<label class=login_element>Last Name:</label>
 		<input class=login_element type='text' name='last' placeholder='Enter Last Name'required>
-		<label class=login_element>Email Id:</label>
 		<input class=login_element type='email' name='email' placeholder='Enter Email Id'required>
-		<label class=login_element>User Name:</label>
                 <input class=login_element type='text' name='uname' placeholder='Enter Username'required>
-                <label class=login_element>User Password:</label>
                 <input class=login_element type='password' name='pwd' placeholder='Enter Password' required>
                 <input class=button_element type='submit' value='Create Account'>
-		<a href={% url 'login' %} class=page_url>Return to login page</a>
+		<a href={% url 'login' %} class=link_element>Return to login page</a>
 	</form>
+</div>
 </div>
 <body>
 </html>

@@ -5,14 +5,16 @@
 	<link rel="stylesheet" type="text/css" href=" {% static 'mytasks/style.css' %} " />
 </head>
 <body>
-
+<video autoplay muted loop id="bharat_map_pan">
+       <source src={% static 'mytasks/videos/b.mp4' %} type="video/mp4">
+</video>
+<div class=login_content>
 <div class=taskbar>
 	MyTasks
 </div>
-<div class=body>
 	<div class=search_box>
 		<form action="{% url 'by_owner' %}" method="post">{% csrf_token %}	
-			<label class=banner>Search by owner</label>	
+			<label class=banner>Search by owner</label>
 			<select name='owner' class=action_element autofocus>
 			{% for user in all_users %}
 				{% if user == selected %}
@@ -22,7 +24,7 @@
 				{% endif %}
 			{% endfor %}
 			</select>
-			<input type="submit" value="Submit" class=button_element>
+			<input type="submit" value="Submit" class=action_element>
 		</form>
 	</div>
 	<div class=task_playground>
@@ -31,7 +33,9 @@
 		<div class=task>
 		<div class=date>{{task.pub_date}}</div>
 		<div class=owner>{{task.owner}}</div>
-		<div class=task_title>{{task.title}}</div>
+		<div class=task_title>
+		<textarea rows='1' >{{task.title}}</textarea>
+		</div>
 		</div>
 	        {% endfor %}
 	{% endif %}
